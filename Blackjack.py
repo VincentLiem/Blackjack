@@ -1,4 +1,5 @@
 import random
+
 deck = (
 '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A',
 '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A',
@@ -14,15 +15,14 @@ def shuffle():
     current_deck = list(deck)
 def count_total(x):
     total = 0
-    A_count = 0
     for card in x:
         if card == 'J' or card == 'Q' or card == 'K':
             card = 10
         if card == 'A':
             card = 1
-            A_count += 1
         total += int(card)
     return total
+
 player_hand = []
 dealer_hand = []
 player_total = 0
@@ -30,6 +30,7 @@ dealer_total = 0
 current_deck = list(deck)
 player_hand.append(draw())
 player_hand.append(draw())
+
 print ('Player has ' + str(player_hand))
 player_total = count_total(player_hand)
 print ('Player point total is ' + str(player_total), end = '')
@@ -67,7 +68,7 @@ else:
         dealer_hand.append(draw())
         dealer_total = count_total(dealer_hand)
         print ('Dealer has ' + str(dealer_hand))
-        print ('Dealer point total is ' + str(dealer_total))
+        print ('Dealer point total is ' + str(dealer_total), end = '')
         if 'A' in dealer_hand:
             print(' or ' + str(dealer_total+10))
         else:
