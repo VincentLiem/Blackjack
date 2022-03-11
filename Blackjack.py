@@ -1,3 +1,4 @@
+
 import random
 deck = (
 '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A', 
@@ -19,7 +20,7 @@ card_points = {
   'J': 10,
   'Q': 10,
   'K': 10,
-  'A': (1,11),
+  'A': 11,
 }
 def draw():
     x = random.choice(current_deck)
@@ -27,11 +28,25 @@ def draw():
     return x
 def shuffle():
     current_deck = list(deck)
-player_hand = ['']
-dealer_hand = ['']
+def count_total(x):
+    for card in x:
+        total = 0
+        total += int(card)
+        return total
+player_hand = []
+dealer_hand = []
+player_total = 0
+dealer_total = 0
+player_hand.append(draw())
+player_hand.append(draw())
+print ('Player has' + str(player_hand))
+count_total(player_hand)
+print ('Player has' + str(player_hand))
+dealer_hand.append(draw())
+print ('Dealer has' + str(dealer_hand))
+count_total(dealer_hand)
+action = input('Hit or stay?')
 
-player_hand = draw()
-print (player_hand)
 
     
 
