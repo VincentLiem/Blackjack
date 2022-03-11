@@ -35,7 +35,7 @@ print ('Player has ' + str(player_hand))
 player_total = count_total(player_hand)
 print ('Player point total is ' + str(player_total), end = '')
 if 'A' in player_hand:
-    print(' or ' + str(player_total+10))
+    print(' or ' + str(player_total+11))
 else:
     print('')
 dealer_hand.append(draw())
@@ -43,7 +43,7 @@ print ('Dealer has ' + str(dealer_hand))
 dealer_total = count_total(dealer_hand)
 print ('Dealer point total is ' + str(dealer_total), end = '')
 if 'A' in dealer_hand:
-    print(' or ' + str(dealer_total+10))
+    print(' or ' + str(dealer_total+11))
 else:
     print('')
 stop = False
@@ -56,7 +56,7 @@ while player_total < 21 and stop == False:
         player_total = count_total(player_hand)
         print ('Player point total is ' + str(player_total), end = '')
         if 'A' in player_hand:
-            print(' or ' + str(player_total+10))
+            print(' or ' + str(player_total+11))
         else:
             print('')
     else:
@@ -64,18 +64,18 @@ while player_total < 21 and stop == False:
 if player_total > 21:
     print ('Player busts, you lose')
 else:
-    while dealer_total < 17 or (dealer_total + 10 < 17 and 'A' in dealer_hand):
+    while dealer_total < 17 or (dealer_total + 11 < 17 and 'A' in dealer_hand):
         dealer_hand.append(draw())
         dealer_total = count_total(dealer_hand)
         print ('Dealer has ' + str(dealer_hand))
         print ('Dealer point total is ' + str(dealer_total), end = '')
         if 'A' in dealer_hand:
-            print(' or ' + str(dealer_total+10))
+            print(' or ' + str(dealer_total+11))
         else:
             print('')
-    if 'A' in player_hand and player_total + 10 <= 21:
+    if 'A' in player_hand and player_total + 11 <= 21:
         player_total += 10
-    if 'A' in dealer_hand and dealer_total + 10 <= 21:
+    if 'A' in dealer_hand and dealer_total + 11 <= 21:
         dealer_total += 10
     if player_total > dealer_total:
             print ('You win')
