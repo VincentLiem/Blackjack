@@ -50,7 +50,7 @@ stop = False
 action = ''
 while player_total < 21 and stop == False:
     action = input('Hit or stay? ')
-    if action == 'hit' or action == 'Hit':
+    if action.lower() == 'hit':
         player_hand.append(draw())
         print ('Player has ' + str(player_hand))
         player_total = count_total(player_hand)
@@ -85,4 +85,3 @@ else:
             print ('Push')
     if dealer_total > 21:
             print ('Dealer busts, you win')
-
