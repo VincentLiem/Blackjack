@@ -23,8 +23,7 @@ def count_total(x):
         total += int(card)
     return total
 
-player_hand = []
-dealer_hand = []
+
 player_total = 0
 dealer_total = 0
 current_deck = list(deck)
