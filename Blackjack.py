@@ -23,20 +23,19 @@ def count_total(x):
         total += int(card)
     return total
 
-
 player_total = 0
 dealer_total = 0
 current_deck = list(deck)
 keep_playing = 'yes'
 money = input('Enter starting money. >> ')
-money = int(money.replace('$',''))
+money = float(money.replace('$',''))
 
-while keep_playing.lower() != 'no':
+while keep_playing.lower() != 'no' and keep_playing.lower() != 'n':
     shuffle()
     player_hand = []
     dealer_hand = []
     bet_amount = input('Enter bet amount. >> ')
-    bet_amount = int(bet_amount.replace('$',''))
+    bet_amount = float(bet_amount.replace('$',''))
     player_hand.append(draw())
     player_hand.append(draw())
     print ('Player has ' + str(player_hand))
@@ -58,7 +57,7 @@ while keep_playing.lower() != 'no':
     action = ''
     while player_total < 21 and stop == False:
         action = input('Hit or stay? ')
-        if action.lower() == 'hit':
+        if action.lower() == 'hit' or action.lower() == 'h':
             player_hand.append(draw())
             print ('Player has ' + str(player_hand))
             player_total = count_total(player_hand)
