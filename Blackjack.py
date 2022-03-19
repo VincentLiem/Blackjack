@@ -1,7 +1,5 @@
 import random
 
-deck = ('2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A') * 4
-
 def draw():
     x = random.choice(current_deck)
     current_deck.remove(x)
@@ -20,13 +18,12 @@ def count_total(x):
 
 player_total = 0
 dealer_total = 0
-current_deck = list(deck)
 keep_playing = 'yes'
 money = input('Enter starting money. >> ')
 money = float(money.replace('$',''))
 
 while keep_playing.lower() != 'no' and keep_playing.lower() != 'n':
-    shuffle()
+    current_deck = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
     player_hand = []
     dealer_hand = []
     bet_amount = input('Enter bet amount. >> ')
