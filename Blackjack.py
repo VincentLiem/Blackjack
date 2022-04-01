@@ -4,6 +4,7 @@ def draw():
     x = random.choice(current_deck)
     current_deck.remove(x)
     return x
+
 def count_total(x):
     total = 0
     for card in x:
