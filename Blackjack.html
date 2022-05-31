@@ -7,20 +7,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blackjack</title>
     <link rel="stylesheet" href="Blackjack.css">
-    <link rel="stylesheet" href="Blackjack.js">
+    <script src="Blackjack.js"></script> 
 </head>
 
 <body>
     <h1>Blackjack</h1>
-    <div id=dealer_area></div>
-    <div id=player_area></div>
+    <div id=dealer_area>
+        <label for="dealer_hand">Dealer's Hand</label>
+        <input id="dealer_hand" type="text">
+    </div>
+    <div id=player_area>
+        <label for="player_hand">Player's Hand</label>
+        <input id="player_hand" type="text">
+    </div>
     <div id=control_area>
         <div id="money_row">
             <label for="current_money">Curent Money</label>
             <input id="current_money" type="text">
             <label for="bet_amount">Bet Amount</label>
             <input id="bet_amount" type="text">
-            <button id=submit_bet>Submit</button>
+            <button id=submit_bet onclick= "new_bet()">Submit</button>
         </div>
         <div id="game_row">
             <button onclick="hit">Hit</button>
