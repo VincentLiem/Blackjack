@@ -22,15 +22,15 @@
     </div>
     <div id=control_area>
         <div id="money_row">
-            <label for="current_money">Curent Money</label>
-            <input id="current_money" type="text">
+            <label for="current_money">Current Money</label>
+            <input id="current_money" value=10000 readonly type="text">
             <label for="bet_amount">Bet Amount</label>
             <input id="bet_amount" type="text">
             <button id=submit_bet onclick= "new_bet()">Submit</button>
         </div>
         <div id="game_row">
-            <button onclick="hit">Hit</button>
-            <button onclick="stay">Stay</button>
+            <button onclick="hit()">Hit</button>
+            <button onclick="stay()">Stay</button>
         </div>
     </div>
 </body>
