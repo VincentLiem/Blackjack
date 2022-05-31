@@ -9,7 +9,10 @@ function hit() {
 function stay() {
     let total = 0
     for (card in player_hand) {
-        if (card === "K" || card === "Q" || card === "J") { card = 10 } total += card;
+        if (card === "K" || card === "Q" || card === "J") { card = 10 };
+        if (card === "A") { card = 1 };
+        total += card;
+        if (player_hand.includes("A") && total <= 11) { total += 10 };
     }
 }
 function new_bet() {
