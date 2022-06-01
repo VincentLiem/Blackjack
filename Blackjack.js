@@ -3,6 +3,7 @@ function hit() {
     console.log("Current Deck: " + current_deck);
     console.log("Player Hand: " + player_hand);
     player_total = total_hand(player_hand)
+    console.log("Player Total: " + player_total);
     if (player_total > 21) {
         document.getElementById("status").value = "You Bust, You Lose";
         current_money -= bet
@@ -53,13 +54,16 @@ function new_bet() {
         draw_cards(player_hand, "player_hand")
     }
     draw_cards(dealer_hand, "dealer_hand")
+    player_total = total_hand(player_hand);
     dealer_total = total_hand(dealer_hand);
     console.log("Current Deck: " + current_deck);
     console.log("Player Hand: " + player_hand);
+    console.log("Player Total: " + player_total);
     console.log("Dealer Hand: " + dealer_hand);
     console.log("Dealer Total: " + dealer_total);
     document.getElementById("hit_button").disabled = false;
     document.getElementById("stay_button").disabled = false;
+    document.getElementById("submit_bet").disabled = true;
     document.getElementById("status").value = "Hit or Stay";
 }
 
@@ -99,6 +103,7 @@ function setup_game() {
     player_total = 0
     document.getElementById('bet_amount').readOnly = false;
     document.getElementById("bet_amount").value = null;
+    document.getElementById("submit_bet").disabled = false;
     document.getElementById("hit_button").disabled = true;
     document.getElementById("stay_button").disabled = true;
 }
