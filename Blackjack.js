@@ -53,12 +53,10 @@ function new_bet() {
     console.log("Player Hand: " + player_hand);
     console.log("Dealer Hand: " + dealer_hand);
     console.log("Dealer Total: " + dealer_total);
-    document.getElementById("hit_button").readOnly = false;
-    document.getElementById("stay_button").readOnly = false;
+    document.getElementById("hit_button").disabled = false;
+    document.getElementById("stay_button").disabled = false;
     document.getElementById("status").value = "Hit or Stay";
 }
-
-
 
 function draw_cards(hand, element) {
     let drawn = current_deck[Math.floor(Math.random() * current_deck.length)];
@@ -100,7 +98,7 @@ function setup_game() {
     player_total = 0
     document.getElementById('bet_amount').readOnly = false;
     document.getElementById("bet_amount").value = null;
-    document.getElementById("hit_button").readOnly = true;
-    document.getElementById("stay_button").readOnly = true;
+    document.getElementById("hit_button").disabled = true;
+    document.getElementById("stay_button").disabled = true;
 }
 setup_game()
