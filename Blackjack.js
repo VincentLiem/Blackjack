@@ -24,7 +24,6 @@ function stay() {
         document.getElementById("status").value = "Dealer Busts, You Win";
         current_money += bet
         document.getElementById("current_money").value = current_money;
-
     }
     else if (player_total == dealer_total) {
         document.getElementById("status").value = "Push";
@@ -107,6 +106,7 @@ function setup_game() {
     document.getElementById("hit_button").disabled = true;
     document.getElementById("stay_button").disabled = true;
 }
+
 const deck = ["A", "K", "Q", "J", "10", "9", "8", "7", "6", "5", "4", "3", "2",
     "A", "K", "Q", "J", "10", "9", "8", "7", "6", "5", "4", "3", "2",
     "A", "K", "Q", "J", "10", "9", "8", "7", "6", "5", "4", "3", "2",
