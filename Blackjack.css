@@ -1,3 +1,11 @@
-#current_money, #status {
+#current_money,
+#status {
     border: none
+}
+
+#current_money {
+    -webkit-appearance: none;
+    margin: 0;
+    -moz-appearance: textfield;
+    -moz-appearance: textfield;
 }
