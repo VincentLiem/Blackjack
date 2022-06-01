@@ -113,6 +113,8 @@ let player_hand = []
 let dealer_total = 0
 let player_total = 0
 let current_money = 10000
+document.getElementById("hit_button").disabled = true;
+document.getElementById("stay_button").disabled = true;
 
 console.log("Current Deck: " + current_deck);
 console.log("Player Hand: " + player_hand);
