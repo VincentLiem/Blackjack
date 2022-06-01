@@ -1,6 +1,6 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #867878;
+    background-color: #35654d;
     font-size: 16px;
     text-align: center;
     vertical-align: middle;
@@ -11,7 +11,7 @@ body {
     border: none;
     font-size: 16px;
     color: black;
-    background-color: #867878
+    background-color: #35654d
 }
 
 #current_money,
