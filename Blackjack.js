@@ -5,7 +5,9 @@ function hit() {
     player_total = total_hand(player_hand)
     if (player_total > 21) {
         document.getElementById("status").value = "You Bust, You Lose";
-        document.getElementById("current_money").value -= bet;
+        current_money -= bet
+        document.getElementById("current_money").value = current_money;
+        console.log("Current Money: " + current_money);
         setup_game()
     }
 }
@@ -19,7 +21,8 @@ function stay() {
     }
     if (dealer_total > 21) {
         document.getElementById("status").value = "Dealer Busts, You Win";
-        document.getElementById("current_money").value += bet;
+        current_money += bet
+        document.getElementById("current_money").value = current_money;
 
     }
     else if (player_total == dealer_total) {
@@ -27,12 +30,15 @@ function stay() {
     }
     else if (player_total > dealer_total) {
         document.getElementById("status").value = "You Win";
-        document.getElementById("current_money").value += bet;
+        current_money += bet
+        document.getElementById("current_money").value = current_money;
     }
     else if (player_total < dealer_total) {
         document.getElementById("status").value = "You Lose";
-        document.getElementById("current_money").value -= bet;
+        current_money -= bet
+        document.getElementById("current_money").value = current_money;
     }
+    console.log("Current Money: " + current_money);
     setup_game()
 }
 
@@ -41,8 +47,7 @@ function new_bet() {
     document.getElementById("player_hand").value = [];
     document.getElementById('bet_amount').readOnly = true;
     document.getElementById("dealer_hand").value = null;
-    current_deck = deck;
-    bet = document.getElementById("bet_amount").value;
+    bet = parseFloat(document.getElementById("bet_amount").value);
     console.log("Bet Amount: " + bet);
     for (x = 0; x <= 1; x++) {
         draw_cards(player_hand, "player_hand")
@@ -83,15 +88,11 @@ function total_hand(hand) {
     if (hand.includes("A") && total <= 11) { total += 10; }
     return total
 }
-const deck = ["A", "K", "Q", "J", "10", "9", "8", "7", "6", "5", "4", "3", "2",
-    "A", "K", "Q", "J", "10", "9", "8", "7", "6", "5", "4", "3", "2",
-    "A", "K", "Q", "J", "10", "9", "8", "7", "6", "5", "4", "3", "2",
-    "A", "K", "Q", "J", "10", "9", "8", "7", "6", "5", "4", "3", "2"];
 
 function setup_game() {
-    let current_deck = deck;
-    let bet = 0;
     console.log("Reset");
+    current_deck = deck
+    bet = 0;
     dealer_hand = []
     player_hand = []
     dealer_total = 0
@@ -101,4 +102,21 @@ function setup_game() {
     document.getElementById("hit_button").disabled = true;
     document.getElementById("stay_button").disabled = true;
 }
-setup_game()
+const deck = ["A", "K", "Q", "J", "10", "9", "8", "7", "6", "5", "4", "3", "2",
+    "A", "K", "Q", "J", "10", "9", "8", "7", "6", "5", "4", "3", "2",
+    "A", "K", "Q", "J", "10", "9", "8", "7", "6", "5", "4", "3", "2",
+    "A", "K", "Q", "J", "10", "9", "8", "7", "6", "5", "4", "3", "2"];
+let current_deck = deck
+let bet = 0;
+let dealer_hand = []
+let player_hand = []
+let dealer_total = 0
+let player_total = 0
+let current_money = 10000
+
+console.log("Current Deck: " + current_deck);
+console.log("Player Hand: " + player_hand);
+console.log("Dealer Hand: " + dealer_hand);
+console.log("Player Total: " + player_total);
+console.log("Dealer Total: " + dealer_total);
+console.log("Current Money: " + current_money);
