@@ -43,27 +43,39 @@ function stay() {
 }
 
 function new_bet() {
-    document.getElementById("dealer_hand").value = [];
-    document.getElementById("player_hand").value = [];
-    document.getElementById('bet_amount').readOnly = true;
-    document.getElementById("dealer_hand").value = null;
     bet = parseFloat(document.getElementById("bet_amount").value);
-    console.log("Bet Amount: " + bet);
-    for (x = 0; x <= 1; x++) {
-        draw_cards(player_hand, "player_hand")
+    if (document.getElementById("bet_amount").value.length == 0) {
+        document.getElementById("status").value = "No bet amount";
     }
-    draw_cards(dealer_hand, "dealer_hand")
-    player_total = total_hand(player_hand);
-    dealer_total = total_hand(dealer_hand);
-    console.log("Current Deck: " + current_deck);
-    console.log("Player Hand: " + player_hand);
-    console.log("Player Total: " + player_total);
-    console.log("Dealer Hand: " + dealer_hand);
-    console.log("Dealer Total: " + dealer_total);
-    document.getElementById("hit_button").disabled = false;
-    document.getElementById("stay_button").disabled = false;
-    document.getElementById("submit_bet").disabled = true;
-    document.getElementById("status").value = "Hit or Stay";
+    else if (bet > current_money) {
+        document.getElementById("status").value = "Bet exceeds money you have";
+    }
+    else if (bet < 0) {
+        document.getElementById("status").value = "Can't bet negative number";
+    }
+    else {
+        document.getElementById("dealer_hand").value = [];
+        document.getElementById("player_hand").value = [];
+        document.getElementById('bet_amount').readOnly = true;
+        document.getElementById("dealer_hand").value = null;
+        bet = parseFloat(document.getElementById("bet_amount").value);
+        console.log("Bet Amount: " + bet);
+        for (x = 0; x <= 1; x++) {
+            draw_cards(player_hand, "player_hand")
+        }
+        draw_cards(dealer_hand, "dealer_hand")
+        player_total = total_hand(player_hand);
+        dealer_total = total_hand(dealer_hand);
+        console.log("Current Deck: " + current_deck);
+        console.log("Player Hand: " + player_hand);
+        console.log("Player Total: " + player_total);
+        console.log("Dealer Hand: " + dealer_hand);
+        console.log("Dealer Total: " + dealer_total);
+        document.getElementById("hit_button").disabled = false;
+        document.getElementById("stay_button").disabled = false;
+        document.getElementById("submit_bet").disabled = true;
+        document.getElementById("status").value = "Hit or Stay";
+    }
 }
 
 function draw_cards(hand, element) {
