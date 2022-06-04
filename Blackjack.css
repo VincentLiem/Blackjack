@@ -5,7 +5,7 @@ body {
     text-align: center;
     vertical-align: middle;
     border: solid white;
-    padding: 4rem 2rem;
+    padding: 4rem 2rem 12rem;
     margin: 5%;
     border-radius: 3rem;
 }
@@ -31,6 +31,7 @@ button {
     border-radius: 15%;
     padding: .1rem .4rem;
     margin: 5px;
+    font-size: 16px;
 }
 
 label {
@@ -52,4 +53,22 @@ div {
 #status {
     text-align: center;
     width: 15rem;
+}
+
+#dealer_hand,
+#player_hand {
+    height: 2rem;
+    max-width: 10rem;
+    font-size: 1.5rem;
+}
+
+#dealer_hand:focus,
+#player_hand:focus,
+#current_money:focus,
+#status:focus {
+    outline: none;
+}
+
+#current_money {
+    padding: 1rem 0rem 0rem;
 }
