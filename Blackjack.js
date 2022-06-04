@@ -1,47 +1,3 @@
-function hit() {
-    draw_cards(player_hand, "player_hand")
-    console.log("Current Deck: " + current_deck);
-    console.log("Player Hand: " + player_hand);
-    player_total = total_hand(player_hand)
-    console.log("Player Total: " + player_total);
-    if (player_total > 21) {
-        document.getElementById("status").value = "You Bust, You Lose";
-        current_money -= bet
-        document.getElementById("current_money").value = current_money;
-        console.log("Current Money: " + current_money);
-        setup_game()
-    }
-}
-function stay() {
-    player_total = total_hand(player_hand)
-    while (dealer_total <= 16) {
-        draw_cards(dealer_hand, "dealer_hand");
-        dealer_total = total_hand(dealer_hand);
-        console.log("Dealer Hand: " + dealer_hand);
-        console.log("Dealer Total: " + dealer_total);
-    }
-    if (dealer_total > 21) {
-        document.getElementById("status").value = "Dealer Busts, You Win";
-        current_money += bet
-        document.getElementById("current_money").value = current_money;
-    }
-    else if (player_total == dealer_total) {
-        document.getElementById("status").value = "Push";
-    }
-    else if (player_total > dealer_total) {
-        document.getElementById("status").value = "You Win";
-        current_money += bet
-        document.getElementById("current_money").value = current_money;
-    }
-    else if (player_total < dealer_total) {
-        document.getElementById("status").value = "You Lose";
-        current_money -= bet
-        document.getElementById("current_money").value = current_money;
-    }
-    console.log("Current Money: " + current_money);
-    setup_game()
-}
-
 function new_bet() {
     bet = parseFloat(document.getElementById("bet_amount").value);
     if (document.getElementById("bet_amount").value.length == 0) {
@@ -76,6 +32,51 @@ function new_bet() {
         document.getElementById("submit_bet").disabled = true;
         document.getElementById("status").value = "Hit or Stay";
     }
+}
+
+function hit() {
+    draw_cards(player_hand, "player_hand")
+    console.log("Current Deck: " + current_deck);
+    console.log("Player Hand: " + player_hand);
+    player_total = total_hand(player_hand)
+    console.log("Player Total: " + player_total);
+    if (player_total > 21) {
+        document.getElementById("status").value = "You Bust, You Lose";
+        current_money -= bet
+        document.getElementById("current_money").value = current_money;
+        console.log("Current Money: " + current_money);
+        setup_game()
+    }
+}
+
+function stay() {
+    player_total = total_hand(player_hand)
+    while (dealer_total <= 16) {
+        draw_cards(dealer_hand, "dealer_hand");
+        dealer_total = total_hand(dealer_hand);
+        console.log("Dealer Hand: " + dealer_hand);
+        console.log("Dealer Total: " + dealer_total);
+    }
+    if (dealer_total > 21) {
+        document.getElementById("status").value = "Dealer Busts, You Win";
+        current_money += bet
+        document.getElementById("current_money").value = current_money;
+    }
+    else if (player_total == dealer_total) {
+        document.getElementById("status").value = "Push";
+    }
+    else if (player_total > dealer_total) {
+        document.getElementById("status").value = "You Win";
+        current_money += bet
+        document.getElementById("current_money").value = current_money;
+    }
+    else if (player_total < dealer_total) {
+        document.getElementById("status").value = "You Lose";
+        current_money -= bet
+        document.getElementById("current_money").value = current_money;
+    }
+    console.log("Current Money: " + current_money);
+    setup_game()
 }
 
 function draw_cards(hand, element) {
@@ -132,10 +133,3 @@ let player_total = 0
 let current_money = 10000
 document.getElementById("hit_button").disabled = true;
 document.getElementById("stay_button").disabled = true;
-
-console.log("Current Deck: " + current_deck);
-console.log("Player Hand: " + player_hand);
-console.log("Dealer Hand: " + dealer_hand);
-console.log("Player Total: " + player_total);
-console.log("Dealer Total: " + dealer_total);
-console.log("Current Money: " + current_money);
