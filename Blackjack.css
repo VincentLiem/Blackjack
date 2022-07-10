@@ -60,6 +60,14 @@ div {
     height: 2rem;
     max-width: 10rem;
     font-size: 1.5rem;
+    border: 1px black solid;
+}
+
+#dealer_area>label,
+#player_area>label {
+    height: 2rem;
+    font-size: 1.5rem;
+    padding: 1rem 1.5rem 1rem 1rem;
 }
 
 #dealer_hand:focus,
