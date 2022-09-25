@@ -133,3 +133,8 @@ let player_total = 0
 let current_money = 10000
 document.getElementById("hit_button").disabled = true;
 document.getElementById("stay_button").disabled = true;
+
+//on "esc" keypress, reset page
+window.addEventListener('keydown', function (a) { if (a.which == 27) {
+    document.location.reload(true)
+    }})
